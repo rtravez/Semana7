@@ -35,6 +35,15 @@ namespace Semana7.Views
                 db.CreateTable<Models.Estudiante>();
                 IEnumerable<Models.Estudiante> resultado = SELECT_WHERE(db, txtUsuario.Text, txtContrasenia.Text);
 
+                if (resultado.Count() > 1)
+                {
+                    DisplayAlert("Alerta","Usuario Correcto", "Ok");
+                }
+                else
+                {
+                    DisplayAlert("Alerta", "Usuario Incorrecto", "Ok");
+                }
+
             }
             catch (Exception ex)
             {
