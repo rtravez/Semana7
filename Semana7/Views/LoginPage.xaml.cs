@@ -43,17 +43,16 @@ namespace Semana7.Views
                 {
                     DisplayAlert("Alerta", "Usuario Incorrecto", "Ok");
                 }
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
         }
 
         private void btnRegistro_Clicked(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new Registro());
 
         }
     }

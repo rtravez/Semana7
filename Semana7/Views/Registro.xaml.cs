@@ -29,6 +29,11 @@ namespace Semana7.Views
                 Contrasenia = txtContrasenia.Text
             };
 
+            con.InsertAsync(datosRegistro);
+            txtNombre.Text = "";
+            txtUsuario.Text = "";
+            txtContrasenia.Text = "";
+
         }
     }
 }
