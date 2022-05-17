@@ -7,6 +7,15 @@
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Label Text="Nombre"></Label>
+            <Entry x:Name="txtNombre" Placeholder="Ingrese nombre" ></Entry>
+            <Label Text="Usuario"></Label>
+            <Entry x:Name="txtUsuario" Placeholder="Ingrese usuario"></Entry>
+            <Label Text="Contraseña"></Label>
+            <Entry x:Name="txtContrasenia" IsPassword="True" Placeholder="Ingrese contraseña"></Entry>
+
+            <Button x:Name="btnRegistrar" Text="Registrar" Clicked="btnRegistrar_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

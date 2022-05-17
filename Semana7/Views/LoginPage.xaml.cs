@@ -47,7 +47,7 @@ namespace Semana7.Views
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
 
         }

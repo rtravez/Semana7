@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,22 @@ namespace Semana7.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Registro : ContentPage
     {
+        private SQLiteAsyncConnection con;
         public Registro()
         {
             InitializeComponent();
+            con = DependencyService.Get<Database>().GetConnection();
+        }
+
+        private void btnRegistrar_Clicked(object sender, EventArgs e)
+        {
+            var datosRegistro = new Models.Estudiante
+            {
+                Nombre = txtNombre.Text,
+                Usuario = txtUsuario.Text,
+                Contrasenia = txtContrasenia.Text
+            };
+
         }
     }
 }
