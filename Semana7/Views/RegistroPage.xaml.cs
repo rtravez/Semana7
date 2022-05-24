@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using Semana7.Models;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,10 @@ using Xamarin.Forms.Xaml;
 namespace Semana7.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Registro : ContentPage
+    public partial class RegistroPage : ContentPage
     {
         private SQLiteAsyncConnection con;
-        public Registro()
+        public RegistroPage()
         {
             InitializeComponent();
             con = DependencyService.Get<Database>().GetConnection();
@@ -22,7 +23,7 @@ namespace Semana7.Views
 
         private void btnRegistrar_Clicked(object sender, EventArgs e)
         {
-            var datosRegistro = new Models.Estudiante
+            var datosRegistro = new Estudiante
             {
                 Nombre = txtNombre.Text,
                 Usuario = txtUsuario.Text,

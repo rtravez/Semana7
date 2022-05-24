@@ -1,15 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Semana7.Views.Registro">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
+             x:Class="Semana7.Views.RegistroPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout>           
 
             <Label Text="Nombre"></Label>
-            <Entry x:Name="txtNombre" Placeholder="Ingrese nombre" ></Entry>
+            <Entry x:Name="txtNombre" Placeholder="Ingrese nombre"></Entry>
             <Label Text="Usuario"></Label>
             <Entry x:Name="txtUsuario" Placeholder="Ingrese usuario"></Entry>
             <Label Text="Contraseña"></Label>
