@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              NavigationPage.HasNavigationBar="False"
              x:Class="Semana7.Views.ElementoPage">
     <ContentPage.Content>
         <StackLayout>
@@ -8,13 +9,19 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <Entry x:Name="txtNombre"></Entry>
+            <Label Text="Id: "/>
+            <Entry x:Name="txtId" IsEnabled="False"></Entry>
+            <Label Text="Nombre: "/>
+            <Entry x:Name="txtNombre"></Entry>            
+            <Label Text="Usuario: "/>
             <Entry x:Name="txtUsuario"></Entry>
+            <Label Text="Contraseña: "/>
             <Entry x:Name="txtContrasenia"></Entry>
 
-            <Button x:Name="btnActualizar" Clicked="btnActualizar_Clicked"></Button>
-            <Button x:Name="btnEliminar" Clicked="btnEliminar_Clicked"></Button>
-            
+            <Button Text="Actualizar" x:Name="btnActualizar" Clicked="btnActualizar_Clicked"></Button>
+            <Button Text="Eliminar" x:Name="btnEliminar" Clicked="btnEliminar_Clicked"></Button>
+            <Button x:Name="btnRegresar" Text="Regresar" Clicked="btnRegresar_Clicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

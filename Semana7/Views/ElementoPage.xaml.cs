@@ -17,12 +17,16 @@ namespace Semana7.Views
         private SQLiteAsyncConnection con;
         private IEnumerable<Estudiante> deleteEstudiante;
         private IEnumerable<Estudiante> updateEstudiante;
-        private int id;
-        public ElementoPage(int id)
+        private Estudiante estudiante;
+        public ElementoPage(Estudiante estudiante)
         {
             InitializeComponent();
             con = DependencyService.Get<Database>().GetConnection();
-            this.id = id;
+            this.estudiante = estudiante;
+            txtId.Text = estudiante.Id.ToString();
+            txtNombre.Text = estudiante.Nombre;
+            txtUsuario.Text = estudiante.Usuario;
+            txtContrasenia.Text = estudiante.Contrasenia;
         }
 
         public static IEnumerable<Estudiante> delete(SQLiteConnection db, int id)
@@ -38,9 +42,10 @@ namespace Semana7.Views
         {
             try
             {
-                var databasepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "iusrael.db3");
+                var databasepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uisrael.db3");
                 var db = new SQLiteConnection(databasepath);
-                updateEstudiante = update(db, txtNombre.Text, txtUsuario.Text, txtContrasenia.Text, id);
+                updateEstudiante = update(db, txtNombre.Text, txtUsuario.Text, txtContrasenia.Text, estudiante.Id);
+                DisplayAlert("Alerta", "Se actualizo correctamente", "ok");
 
             }
             catch (Exception ex) {
@@ -52,13 +57,20 @@ namespace Semana7.Views
         private void btnEliminar_Clicked(object sender, EventArgs e)
         {
             try {
-                var databasepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "iusrael.db3");
+                var databasepath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uisrael.db3");
                 var db = new SQLiteConnection(databasepath);
-                deleteEstudiante = delete(db, id);
+                deleteEstudiante = delete(db, estudiante.Id);
+                DisplayAlert("Alerta", "Se elimino correctamente", "ok");
+
 
             } catch (Exception ex) {
                 throw ex;
             }
+        }
+
+        private void btnRegresar_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ConsultarRegistroPage());
         }
     }
 }

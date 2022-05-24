@@ -23,12 +23,7 @@ namespace Semana7.Views
 
         private void btnRegistrar_Clicked(object sender, EventArgs e)
         {
-            var datosRegistro = new Estudiante
-            {
-                Nombre = txtNombre.Text,
-                Usuario = txtUsuario.Text,
-                Contrasenia = txtContrasenia.Text
-            };
+            var datosRegistro = new Estudiante { Nombre = txtNombre.Text, Usuario = txtUsuario.Text, Contrasenia = txtContrasenia.Text };
 
             con.InsertAsync(datosRegistro);
             txtNombre.Text = "";

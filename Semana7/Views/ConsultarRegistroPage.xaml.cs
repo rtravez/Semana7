@@ -22,8 +22,6 @@ namespace Semana7.Views
             InitializeComponent();
             con = DependencyService.Get<Database>().GetConnection();
             NavigationPage.SetHasBackButton(this, false);
-
-
         }
 
         protected async override void OnAppearing()
@@ -40,7 +38,7 @@ namespace Semana7.Views
             var item = obj.Id.ToString();
             var id = Convert.ToInt32(item);
 
-            Navigation.PushAsync(new ElementoPage(id));
+            Navigation.PushAsync(new ElementoPage(obj));
         }
     }
 }

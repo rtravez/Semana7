@@ -23,31 +23,31 @@ namespace Semana7.Views
         }
         public static IEnumerable<Estudiante> SELECT_WHERE(SQLiteConnection db, string usuario, string contrasenia)
         {
-            return db.Query<Estudiante>("SELECT * FROM Estudiante where Usuario = ? and Contrasenia = ?", usuario, contrasenia);
+           
+            return db.Query<Estudiante>("SELECT * FROM Estudiante where Usuario = ? and Contrasenia =?", usuario, contrasenia);
         }
 
         private void btnLogin_Clicked(object sender, EventArgs e)
         {
             try
             {
-                var documetPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "iusrael.db3");                
-                var db = new SQLiteConnection(documetPath);
+                var documenthpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uisrael.db3");
+                var db = new SQLiteConnection(documenthpath);
                 db.CreateTable<Estudiante>();
                 IEnumerable<Estudiante> resultado = SELECT_WHERE(db, txtUsuario.Text, txtContrasenia.Text);
 
-                if (resultado.Count() > 1)
+                if (resultado.Count() > 0)
                 {
-                    // DisplayAlert("Alerta","Usuario Correcto", "Ok");
                     Navigation.PushAsync(new ConsultarRegistroPage());
                 }
                 else
                 {
-                    DisplayAlert("Alerta", "Usuario Incorrecto", "Ok");
+                    DisplayAlert("Alerta", "Verifique su usuario/contraseña", "Ok");
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
+                DisplayAlert("Alerta", ex.Message, "Ok");
             }
         }
 

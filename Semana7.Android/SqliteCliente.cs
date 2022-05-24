@@ -6,12 +6,13 @@ using System.IO;
 namespace Semana7.Droid
 {
     class SqliteCliente : Database
-    {    
-       public SQLiteAsyncConnection GetConnection()
+    {
+        public SQLiteAsyncConnection GetConnection()
         {
-            var documetPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
-            var path = Path.Combine(documetPath, "uisrael.db3");
+            var documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+            var path = Path.Combine(documentPath, "uisrael.db3");
             return new SQLiteAsyncConnection(path);
+
         }
     }
 }
